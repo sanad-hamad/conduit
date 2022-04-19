@@ -21,7 +21,7 @@ describe('first', () => {
                                    )
     });
     it('verify go to setting', () => {
-        cy.getCookies()
+
     });
     it('verify update username', () => {
         cy.updateSetting({username:"Samer"})
