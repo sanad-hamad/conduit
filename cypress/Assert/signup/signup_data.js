@@ -1,4 +1,4 @@
- const [validEmail, password, userName] = ["somar@gmail.com", "8000", "userGuro720"]
+ const [validEmail, password, userName] = ["hamadH@gmail.com", "8000", "userGuro99"]
 export const dataSet=[
   {"email":validEmail,
     "password":password

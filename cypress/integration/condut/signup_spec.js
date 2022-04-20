@@ -4,7 +4,7 @@ import { cleanUp,
          verifyLoginLink,
          clickSignUpButton,
          verifyInvalidSignUpMsg
-       } from "../../support/condut/signup_helper"
+       } from "../../support/condut/helperFunction/signup_helper"
 // data set on fields
 import{dataSet} from "../../Assert/signup/signup_data"
 let invalidSignUp="email can't be blank"

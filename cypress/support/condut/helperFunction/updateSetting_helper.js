@@ -46,8 +46,21 @@ const verifyprofileIsUpdated=()=>{
     .should('have.attr','src',updateSettingValue[2].imageUrl)
 }
 const cleanUp=(locator)=>{
-  cy.get(locator)
-    .clear();
+   if(locator=="username")
+    {
+      cy.get(settingLocator.username)
+        .clear()
+    }
+    else if(locator=="ImgProfile")
+    {
+      cy.get(settingLocator.profileImage)
+        .clear()
+    }
+    else if(locator=="bio")
+    {
+      cy.get(settingLocator.shortBio)
+        .clear()
+    }
 }
 const cleanUpAll=()=>{
   cy.get(settingLocator.username)
