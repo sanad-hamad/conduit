@@ -23,10 +23,16 @@ describe('first', () => {
         // after test is done save jwt token
         cy.saveLocalStorage()
     })
-    it('verify go to setting', () => {
-        cy.getLocalStorage('jwtToken').should('exist')
+    it('verify update username', () => {
+        cy.updateSetting(updateSettingValue[0]);
+         verifyUsernameUpdated()
     });
-    it('second',()=>{
-         cy.getLocalStorage('jwtToken').should('exist')
+    it('verify update short bio',()=>{
+        cy.updateSetting(updateSettingValue[1])
+        verifyShortBioUpdated();
     })
+    it('verify update profile picture', () => {
+        cy.updateSetting(updateSettingValue[2])
+        verifyProfileImage();
+    });
  })
