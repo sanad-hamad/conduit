@@ -1,5 +1,4 @@
 /// <reference types="cypress" />
-/// <reference types="cypress" />
 const clearUpParameter={username:"username",bio:"bio",ImgProfile:"ImgProfile"}
 import {validLoginCase} from "../../Assert/login/login_data"
 import {dataSetToUpdateSetting} from "../../Assert/update-setting/setting_data"
@@ -11,7 +10,7 @@ import {
         verifyUsernameUpdated,
         verifyProfileIsUpdated,
        } from "../../support/condut/helperFunction/updateSetting_helper"
-describe('first', () => { 
+describe('verify update profile', () => {
     before(()=>{
         cy.visit('/login')
          cy.login(validLoginCase)

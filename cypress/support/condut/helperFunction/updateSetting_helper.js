@@ -1,4 +1,4 @@
-import {updateSettingValue} from "../../../Assert/update-setting/setting_data"
+import {dataSetToUpdateSetting} from "../../../Assert/update-setting/setting_data"
 const settingLocator=
                     {
                       profileImage:'input[ng-model="$ctrl.formData.image"]',
@@ -16,25 +16,25 @@ const profileLocator=
 
 const verifyUsernameUpdated=()=>{
   cy.get(profileLocator.username)
-    .should('have.text',updateSettingValue[0].username)
+    .should('have.text',dataSetToUpdateSetting[0].username)
 }
 
 const verifyShortBioUpdated=()=>{
   cy.get(profileLocator.shortBio)
-    .should('have.text',updateSettingValue[1].bio)
+    .should('have.text',dataSetToUpdateSetting[1].bio)
 }
 const verifyProfileImage=()=>{
   cy.get(profileLocator.profileImage)
-    .should('have.attr','src',updateSettingValue[2].imageUrl)
+    .should('have.attr','src',dataSetToUpdateSetting[2].imageUrl)
 }
 
 const verifyProfileIsUpdated=()=>{
   cy.get(profileLocator.username)
-    .should('have.text',updateSettingValue[3].username)
+    .should('have.text',dataSetToUpdateSetting[3].username)
   cy.get(profileLocator.shortBio)
-    .should('have.text',updateSettingValue[3].bio)
+    .should('have.text',dataSetToUpdateSetting[3].bio)
   cy.get(profileLocator.profileImage)
-    .should('have.attr','src',updateSettingValue[2].imageUrl)
+    .should('have.attr','src',dataSetToUpdateSetting[3].imageUrl)
 }
 const cleanUp=(locator)=>{
    if(locator=="username")
@@ -62,7 +62,6 @@ const cleanUpAll=()=>{
     .clear()
 }
 export{settingLocator,
-       saveCookies,
        verifyUsernameUpdated,
       verifyProfileImage,
       verifyShortBioUpdated,
