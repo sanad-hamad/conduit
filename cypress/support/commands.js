@@ -25,5 +25,3 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 // -- This can be access on any spec file and login
-
-import "cypress-localstorage-commands"

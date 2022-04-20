@@ -11,21 +11,21 @@ import {
         verifyProfileIsUpdated,
        } from "../../support/condut/helperFunction/updateSetting_helper"
 describe('verify update profile', () => {
+    let jwtToken="";
     before(()=>{
         cy.visit('/login')
          cy.login(validLoginCase)
          cy.wait(7000)
-       cy.saveLocalStorage()
+        cy.then(()=>{
+            jwtToken=localStorage.getItem('jwtToken')
+            cy.log(jwtToken)
+        })
     })
     beforeEach(() => {
         // get the val of localstorge  jwt
-      cy.restoreLocalStorage()
+      window.localStorage.setItem('jwtToken',jwtToken)
       cy.visit('/settings')
     });
-    afterEach(()=>{
-        // after test is done save jwt token
-        cy.saveLocalStorage()
-    })
     it('verify update username', () => {
         cleanUp(clearUpParameter.username)
         cy.updateSetting(dataSetToUpdateSetting[0]);

@@ -23,6 +23,3 @@ import "./commands";
 import "./condut/commands/signup_commands"
 import "./condut/commands/login_commands"
 import"./condut/commands/updateSetting_command"
-Cypress.Cookies.defaults({
-    preserve: '__cf_bm',
-  })
