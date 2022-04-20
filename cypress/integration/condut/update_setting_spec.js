@@ -15,10 +15,12 @@ describe('first', () => {
        cy.saveLocalStorage()
     })
     beforeEach(() => {
+        // get the val of localstorge  jwt
       cy.restoreLocalStorage()
       cy.visit('/settings')
     });
     afterEach(()=>{
+        // after test is done save jwt token
         cy.saveLocalStorage()
     })
     it('verify go to setting', () => {
