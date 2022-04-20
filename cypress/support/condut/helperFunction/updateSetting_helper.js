@@ -14,15 +14,6 @@ const profileLocator=
                     profileImage:"img.user-img"
                   }
 
-
-                    const saveCookies = () => {
-                      Cypress.Cookies.defaults({
-                        preserve: (cookie) => {
-                          return true
-                        },
-                      })
-                    }
-
 const verifyUsernameUpdated=()=>{
   cy.get(profileLocator.username)
     .should('have.text',updateSettingValue[0].username)
@@ -37,7 +28,7 @@ const verifyProfileImage=()=>{
     .should('have.attr','src',updateSettingValue[2].imageUrl)
 }
 
-const verifyprofileIsUpdated=()=>{
+const verifyProfileIsUpdated=()=>{
   cy.get(profileLocator.username)
     .should('have.text',updateSettingValue[3].username)
   cy.get(profileLocator.shortBio)
@@ -75,7 +66,7 @@ export{settingLocator,
        verifyUsernameUpdated,
       verifyProfileImage,
       verifyShortBioUpdated,
-      verifyprofileIsUpdated,
+      verifyProfileIsUpdated,
       cleanUp,
       cleanUpAll
       }

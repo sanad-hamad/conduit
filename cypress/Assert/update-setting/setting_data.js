@@ -1,5 +1,5 @@
 let imagePath="https://www.testim.io/wp-content/uploads/2019/11/Test-Automation-vs-Manual-Testing-Picking-the-Right-Balance-1.jpg";
-const updateSettingValue=[
+const dataSetToUpdateSetting=[
                            {
                               username:"Sanad",
                            },
@@ -16,4 +16,4 @@ const updateSettingValue=[
                            }
                         ]
 
-export{updateSettingValue}
+export{dataSetToUpdateSetting}

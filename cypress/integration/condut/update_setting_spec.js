@@ -2,14 +2,14 @@
 /// <reference types="cypress" />
 const clearUpParameter={username:"username",bio:"bio",ImgProfile:"ImgProfile"}
 import {validLoginCase} from "../../Assert/login/login_data"
-import {updateSettingValue} from "../../Assert/update-setting/setting_data"
-import {saveCookies,
+import {dataSetToUpdateSetting} from "../../Assert/update-setting/setting_data"
+import {
         cleanUpAll,
         cleanUp,
         verifyProfileImage,
         verifyShortBioUpdated,
         verifyUsernameUpdated,
-        verifyprofileIsUpdated,
+        verifyProfileIsUpdated,
        } from "../../support/condut/helperFunction/updateSetting_helper"
 describe('first', () => { 
     before(()=>{
@@ -29,22 +29,22 @@ describe('first', () => {
     })
     it('verify update username', () => {
         cleanUp(clearUpParameter.username)
-        cy.updateSetting(updateSettingValue[0]);
+        cy.updateSetting(dataSetToUpdateSetting[0]);
          verifyUsernameUpdated()
     });
     it('verify update short bio',()=>{
         cleanUp(clearUpParameter.bio)
-        cy.updateSetting(updateSettingValue[1])
+        cy.updateSetting(dataSetToUpdateSetting[1])
         verifyShortBioUpdated();
     })
     it('verify update profile picture', () => {
         cleanUp(clearUpParameter.ImgProfile)
-        cy.updateSetting(updateSettingValue[2])
+        cy.updateSetting(dataSetToUpdateSetting[2])
         verifyProfileImage();
     });
     it('verify update profile', () => {
         cleanUpAll();
-     cy.updateSetting(updateSettingValue[3])
-     verifyprofileIsUpdated()
+     cy.updateSetting(dataSetToUpdateSetting[3])
+     verifyProfileIsUpdated()
     });
  })
