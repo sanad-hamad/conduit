@@ -1,4 +1,4 @@
-import { settingLocator,cleanUp } from "../helperFunction/updateSetting_helper"
+import { settingLocator,cleanUp,cleanUpAll } from "../helperFunction/updateSetting_helper"
 
 Cypress.Commands.add('updateSetting', ({username,bio,imageUrl})=>{
     if(username &&!bio&&!imageUrl)
@@ -24,11 +24,14 @@ Cypress.Commands.add('updateSetting', ({username,bio,imageUrl})=>{
     }
     if(username && imageUrl &&bio)
     {
+      cleanUpAll();
         cy.get(settingLocator.username)
           .type(username)
         cy.get(settingLocator.shortBio)
           .type(bio)
         cy.get(settingLocator.profileImage)
           .type(imageUrl)
+        cy.get(settingLocator.updateButton)
+          .click()
     }
 } );

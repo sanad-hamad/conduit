@@ -1,18 +1,18 @@
-let imagePath="https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+let imagePath="https://www.testim.io/wp-content/uploads/2019/11/Test-Automation-vs-Manual-Testing-Picking-the-Right-Balance-1.jpg";
 const updateSettingValue=[
                            {
-                              username:"SanadKH",
+                              username:"SanadK",
                            },
                            {
-                              bio:"I will try to test this site"
-                           },
-                           {
-                              imageUrl:imagePath,
+                              bio:"make manual testing"
                            },
                            {
                               imageUrl:imagePath,
-                              username:"SanadKH",
-                              bio:"I will try to test this site"
+                           },
+                           {
+                              imageUrl:imagePath,
+                              username:"SaeedKH",
+                              bio:"verify all fields is work"
                            }
                         ]
 

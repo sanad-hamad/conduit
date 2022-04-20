@@ -5,7 +5,8 @@ import {updateSettingValue} from "../../Assert/update-setting/setting_data"
 import {saveCookies,
         verifyProfileImage,
         verifyShortBioUpdated,
-        verifyUsernameUpdated
+        verifyUsernameUpdated,
+        verifyprofileIsUpdated
        } from "../../support/condut/helperFunction/updateSetting_helper"
 describe('first', () => { 
     before(()=>{
@@ -34,5 +35,9 @@ describe('first', () => {
     it('verify update profile picture', () => {
         cy.updateSetting(updateSettingValue[2])
         verifyProfileImage();
+    });
+    it('verify update profile', () => {
+     cy.updateSetting(updateSettingValue[3])
+     verifyprofileIsUpdated()
     });
  })

@@ -36,13 +36,33 @@ const verifyProfileImage=()=>{
   cy.get(profileLocator.profileImage)
     .should('have.attr','src',updateSettingValue[2].imageUrl)
 }
+
+const verifyprofileIsUpdated=()=>{
+  cy.get(profileLocator.username)
+    .should('have.text',updateSettingValue[3].username)
+  cy.get(profileLocator.shortBio)
+    .should('have.text',updateSettingValue[3].bio)
+  cy.get(profileLocator.profileImage)
+    .should('have.attr','src',updateSettingValue[2].imageUrl)
+}
 const cleanUp=(locator)=>{
-  cy.get(locator).clear();
+  cy.get(locator)
+    .clear();
+}
+const cleanUpAll=()=>{
+  cy.get(settingLocator.username)
+    .clear()
+  cy.get(settingLocator.shortBio)
+    .clear()
+  cy.get(settingLocator.profileImage)
+    .clear()
 }
 export{settingLocator,
        saveCookies,
        verifyUsernameUpdated,
       verifyProfileImage,
       verifyShortBioUpdated,
-      cleanUp
+      verifyprofileIsUpdated,
+      cleanUp,
+      cleanUpAll
       }
