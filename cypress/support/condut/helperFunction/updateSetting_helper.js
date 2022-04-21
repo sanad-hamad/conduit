@@ -14,58 +14,20 @@ const profileLocator=
                     profileImage:"img.user-img"
                   }
 
-const verifyUsernameUpdated=()=>{
-  cy.get(profileLocator.username)
-    .should('have.text',dataSetToUpdateSetting[0].username)
-}
-
-const verifyShortBioUpdated=()=>{
-  cy.get(profileLocator.shortBio)
-    .should('have.text',dataSetToUpdateSetting[1].bio)
-}
-const verifyProfileImage=()=>{
-  cy.get(profileLocator.profileImage)
-    .should('have.attr','src',dataSetToUpdateSetting[2].imageUrl)
-}
-
-const verifyProfileIsUpdated=()=>{
-  cy.get(profileLocator.username)
-    .should('have.text',dataSetToUpdateSetting[3].username)
-  cy.get(profileLocator.shortBio)
-    .should('have.text',dataSetToUpdateSetting[3].bio)
-  cy.get(profileLocator.profileImage)
-    .should('have.attr','src',dataSetToUpdateSetting[3].imageUrl)
-}
-const cleanUp=(locator)=>{
-   if(locator=="username")
-    {
-      cy.get(settingLocator.username)
-        .clear()
-    }
-    else if(locator=="ImgProfile")
-    {
-      cy.get(settingLocator.profileImage)
-        .clear()
-    }
-    else if(locator=="bio")
-    {
-      cy.get(settingLocator.shortBio)
-        .clear()
-    }
-}
-const cleanUpAll=()=>{
-  cy.get(settingLocator.username)
-    .clear()
-  cy.get(settingLocator.shortBio)
-    .clear()
-  cy.get(settingLocator.profileImage)
-    .clear()
+const verifyUpdatedSettings=(object)=>{
+  if(object.username){
+    cy.get(profileLocator.username)
+      .should('have.text',object.username)
+  }
+  if(object.bio){
+    cy.get(profileLocator.shortBio)
+    .should('have.text',object.bio)
+  }
+  if(object.imageUrl){
+    cy.get(profileLocator.profileImage)
+    .should('have.attr','src',object.imageUrl)
+  }
 }
 export{settingLocator,
-       verifyUsernameUpdated,
-      verifyProfileImage,
-      verifyShortBioUpdated,
-      verifyProfileIsUpdated,
-      cleanUp,
-      cleanUpAll
+       verifyUpdatedSettings,
       }

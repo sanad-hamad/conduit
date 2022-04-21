@@ -17,7 +17,7 @@ const cleanUp=()=>{
 
 const verifyInvalidLoginMsg=(msg)=>{
     cy.contains(msg)
-      .should('be.visible');
+      .should('be.visible')
 }
 const clickLoginButton=()=>{
     cy.get(loginLocator.signInButton)
@@ -34,6 +34,7 @@ const clickLoginInButton=()=>{
 const verifySuccessfullyLogin=()=>{
   cy.get(loginLocator.username)
     .contains(user)
+    .should('be.visible')
     .should('have.attr','href',`#/@${user}`)
     .and('contain',user)
 }
