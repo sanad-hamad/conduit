@@ -5,10 +5,7 @@ import {dataSetToUpdateSetting} from "../../Assert/update-setting/setting_data"
 import {
         cleanUpAll,
         cleanUp,
-        verifyProfileImage,
-        verifyShortBioUpdated,
-        verifyUsernameUpdated,
-        verifyProfileIsUpdated,
+        verifyUpdatedSettings
        } from "../../support/condut/helperFunction/updateSetting_helper"
 describe('verify update profile', () => {
     let jwtToken="";
@@ -21,29 +18,17 @@ describe('verify update profile', () => {
             cy.log(jwtToken)
         })
     })
+
     beforeEach(() => {
         // get the val of localstorge  jwt
       window.localStorage.setItem('jwtToken',jwtToken)
       cy.visit('/settings')
     });
-    it('verify update username', () => {
-        cleanUp(clearUpParameter.username)
-        cy.updateSetting(dataSetToUpdateSetting[0]);
-         verifyUsernameUpdated()
-    });
-    it('verify update short bio',()=>{
-        cleanUp(clearUpParameter.bio)
-        cy.updateSetting(dataSetToUpdateSetting[1])
-        verifyShortBioUpdated();
+
+    dataSetToUpdateSetting.map((dataToUpdate)=>{
+       it(dataToUpdate.testName, () => {
+        cy.updateSetting(dataToUpdate)
+        verifyUpdatedSettings(dataToUpdate)
+       });
     })
-    it('verify update profile picture', () => {
-        cleanUp(clearUpParameter.ImgProfile)
-        cy.updateSetting(dataSetToUpdateSetting[2])
-        verifyProfileImage();
-    });
-    it('verify update profile', () => {
-        cleanUpAll();
-     cy.updateSetting(dataSetToUpdateSetting[3])
-     verifyProfileIsUpdated()
-    });
  })

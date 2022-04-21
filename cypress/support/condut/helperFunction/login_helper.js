@@ -17,7 +17,7 @@ const cleanUp=()=>{
 
 const verifyInvalidLoginMsg=(msg)=>{
     cy.contains(msg)
-      .should('be.visible');
+      .should('be.visible')
 }
 const clickLoginButton=()=>{
     cy.get(loginLocator.signInButton)
