@@ -34,6 +34,7 @@ const clickLoginInButton=()=>{
 const verifySuccessfullyLogin=()=>{
   cy.get(loginLocator.username)
     .contains(user)
+    .should('be.visible')
     .should('have.attr','href',`#/@${user}`)
     .and('contain',user)
 }
