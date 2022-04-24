@@ -1,3 +1,5 @@
+import { addMatchImageSnapshotCommand } from 'cypress-image-snapshot/command';
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -25,3 +27,5 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 // -- This can be access on any spec file and login
+
+addMatchImageSnapshotCommand();
